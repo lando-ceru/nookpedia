@@ -1,0 +1,130 @@
+
+.activeHours {
+    box-sizing: border-box;
+    margin: 0px;
+    min-width: 0px;
+  }
+  .clock {
+    box-sizing: border-box;
+    margin: 0px;
+    min-width: 0px;
+    position: relative;
+    opacity: 1;
+  }
+  .time_container {
+    box-sizing: border-box;
+    margin: 0px;
+    min-width: 0px;
+    transform: translate(-0.4ex);
+    display: flex;
+  }
+  .am_pm {
+      box-sizing: border-box;
+      margin: 0px;
+      min-width: 0px;
+      flex: 0 0 50%;
+  }
+  .day_quarters {
+    box-sizing: border-box;
+    margin: 0px;
+    min-width: 0px;
+    flex: 0 0 25%;
+  }
+  .time {
+    box-sizing: border-box;
+    margin: 0px;
+    min-width: 0px;
+    border-right: 1px solid rgb(102, 102, 102);
+    border-bottom: 2px solid rgb(102, 102, 102);
+    position: relative;
+    z-index: 1;
+    align-items: flex-end;
+    display: flex;
+  }
+  .hour:nth-of-type(1), .hour:nth-of-type(7), .hour:nth-of-type(13), .hour:nth-of-type(19) {
+    height: 20px;
+  }
+  .hour {
+    box-sizing: border-box;
+    margin: 0px;
+    min-width: 0px;
+    flex: 1 1 auto;
+    width: 4%;
+    height: 10px;
+    border-left: 1px solid rgb(102, 102, 102);
+  }
+  .hour-bar {
+    box-sizing: border-box;
+    margin: 0px;
+    min-width: 0px;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    padding-bottom: 1px;
+    bottom: 3px;
+    border-bottom: 1px solid rgb(153, 153, 153);
+    flex-wrap: wrap;
+    display: flex;
+  }
+  .unavailable-hour {
+    box-sizing: border-box;
+    margin: 0px;
+    min-width: 0px;
+    flex: 1 1 auto;
+    width: 4%;
+    height: 10px;
+    background-color: transparent;
+    border-radius: 5px 0px 0px 5px;
+  }
+  .available-hour-start {
+    box-sizing: border-box;
+    margin: 0px;
+    min-width: 0px;
+    flex: 1 1 auto;
+    width: 4%;
+    height: 10px;
+    background-color: rgb(184, 210, 82);
+    border-radius: 5px 0px 0px 5px;
+  }
+  .available-hour {
+    box-sizing: border-box;
+    margin: 0px;
+    min-width: 0px;
+    flex: 1 1 auto;
+    width: 4%;
+    height: 10px;
+    background-color: rgb(184, 210, 82);
+    border-radius: 0px;
+  }
+  .available-hour-end {
+    box-sizing: border-box;
+    margin: 0px;
+    min-width: 0px;
+    flex: 1 1 auto;
+    width: 4%;
+    height: 10px;
+    background-color: rgb(184, 210, 82);
+    border-radius: 0px 5px 5px 0px;
+  }
+  .hour-shift {
+    box-sizing: border-box;
+    margin: 0px;
+    min-width: 0px;
+    flex: 1 1 auto;
+    width: 4%;
+    height: 10px;
+    background-color: transparent;
+    border-radius: 0px 5px 5px 0px;
+  }
+  .current-time {
+    box-sizing: border-box;
+    margin: 0px;
+    min-width: 0px;
+    height: 25px;
+    width: 2px;
+    background-color: red;
+    position: absolute;
+    bottom: -2px;
+    z-index: 2;
+  }
+  
