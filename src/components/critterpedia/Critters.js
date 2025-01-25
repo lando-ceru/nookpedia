@@ -14,7 +14,12 @@ class Critters extends React.Component {
 	}
 
 	componentDidMount() {
-		fetch("https://acnhapi.com/v1/" + this.props.catalog)
+		fetch("https://api.nookipedia.com/nh/" + this.props.catalog, {
+			mode: 'cors',
+			headers: {
+			  'X-API-KEY': '014227dc-46df-463f-8774-07bd27e15ef2'
+			}
+		})
 			.then(res => res.json())
 			.then(
 				(result) => {
@@ -59,18 +64,21 @@ class Critters extends React.Component {
 							<Col key={key} id={"cx" + data.id} className="flex item">
 								<div className="p-1">
 									<CritterInfo
-										id={data.id}
-										file={data["file-name"]}
-										name={this.capitalizeName(data.name["name-USen"])}
-										availability={data.availability}
-										shadow={data.shadow}
-										speed={data.speed}
-										price={data.price}
-										cj={data["price-cj"]}
-										flick={data["price-flick"]}
-										icon={data.icon_uri}
-										image={data.image_uri}
-										museum={data["museum-phrase"]}
+										id={data.number}
+										// file={data["file-name"]}
+										name={data.name}
+										availability={data.north}
+										shadow={data.shadow_size}
+										speed={data.shadow_movement}
+										location={data.location}
+										rarity={data.rarity}
+										price={data.sell_nook}
+										cj={data.sell_cj}
+										flick={data.sell_flick}
+										icon={data.image_url}
+										image={data.render_url}
+										museum={data.catchphrases}
+										weather={data.weather}
 										className={"p-1"}
 										mode={this.props.mode}
 									/>

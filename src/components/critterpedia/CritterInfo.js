@@ -3,6 +3,7 @@ import { Col, Row, OverlayTrigger, Tooltip, Modal } from 'react-bootstrap';
 import Calendar from "../../features/calendar/Calendar.js";
 import Clock from "../../features/clock/Clock.js";
 import "./Critters.css";
+//import { faClosedCaptioning } from '@fortawesome/free-solid-svg-icons';
 
 function CritterInfo(props) {
 	const [show, setShow] = useState(false);
@@ -32,7 +33,7 @@ function CritterInfo(props) {
 	const mode = (props.mode === "discover") ? true : false;
 
 	month.map((m, i) => {
-		return hidden = (!props.availability["month-array-northern"].includes(currentMonth) && mode) ? "not-available" : "";
+		return hidden = (!props.availability.months_array.includes(currentMonth) && mode) ? "not-available" : "";
 	})
 
 
@@ -42,7 +43,7 @@ function CritterInfo(props) {
 				placement="top"
 				overlay={
 					<Tooltip id={`tooltip-top`}>
-						<strong>{props.name}</strong>
+						<strong className="critterName">{props.name}</strong>
 					</Tooltip>
 				}
 			>
@@ -62,30 +63,33 @@ function CritterInfo(props) {
 							<div className="critterTitleShadow">
 								<div className="critterTitle">{props.name}</div>
 							</div>
-							<img src={props.image} alt={props.name} width="100%" />
+							<img src={props.image} alt={props.name} />
 						</Col>
 						<Col className="col-6 critterRight">
 							<Calendar 
 								months={month}
-								availableMonths={props.availability["month-array-northern"]}
+								availableMonths={props.availability.months_array}
 								currentMonth={currentMonth}
 							/>
 							<Clock 
-								availableTime={props.availability["time-array"]}
+								availableTime={props.availability.availability_array["0"].time}
 							/>
 							<div className="info">
 								<Row className="col-12 mb-1">
-									<Col className="col-6"><span className="label">{(props.availability.location) ? "Location" : "Speed"}</span></Col><Col className="col-6"><span className="label">{(props.availability.rarity) ? "Rarity" : "Shadow"}</span></Col>
+									<Col className="col-6"><span className="label">{((props.location) ? "Location" : "Shadow")}</span></Col><Col className="col-6"><span className="label">Rarity</span></Col>
 								</Row>
 								<Row className="col-12 mb-4">
-									<Col className="col-6">{(props.availability.location) ? props.availability.location : props.speed}</Col><Col className="col-6">{(props.availability.rarity) ? props.availability.rarity : props.shadow}</Col>
+									<Col className="col-6">{((props.location) ? props.location : props.shadow)}</Col><Col className="col-6">{((props.rarity) ? props.rarity : "Very Common")}</Col>
+								</Row>
+								<Row className="col-12 mb-1">
+									<Col className="col-6"><span className="label">{((props.weather) ? "Weather" : "Speed")}</span></Col><Col className="col-6"><span className="label">Price</span></Col>
 								</Row>
 								<Row className="col-12 mb-4">
-									<Col className="col-12 mb-1"><span className="label">Price</span></Col><Col className="col-12">{props.price} bells{buyerMessage}</Col>
+									<Col className="col-6">{((props.weather) ? props.weather : props.speed)}</Col><Col className="col-6">{props.price} bells{buyerMessage}</Col>
 								</Row>
-								{/* <Row className="col-12">
-									<Col className="col-12 mb-1"><span className="label">Blather's notes</span></Col><Col className="col-12">{props.museum}</Col>
-								</Row> */}
+								<Row className="col-12">
+									<Col className="col-12 mb-1"><span className="label">Catch notes</span></Col><Col className="col-12">{props.museum[Math.floor(Math.random() * props.museum.length)]}</Col>
+								</Row>
 							</div>
 						</Col>
 					</Row>
