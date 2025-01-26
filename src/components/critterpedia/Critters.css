@@ -135,6 +135,12 @@ button svg{
 .modal-dialog {
   max-width: 50% !important;
 }
+@media only screen and (max-width: 576px) {
+  
+  .modal-dialog {
+    max-width: 90% !important;
+  }
+}
 .modal-content {
   box-sizing: border-box;
   margin: 0px;
@@ -146,16 +152,29 @@ button svg{
 }
 
 .wrapper-b {    
+  display:grid;
+  width: auto !important;
+  grid-template-areas: 
+      "cx1 cx6 cx11 cx16 cx21 cx26 cx31 cx36 cx41 cx46 cx51 cx56 cx61 cx66 cx71 cx76"
+      "cx2 cx7 cx12 cx17 cx22 cx27 cx32 cx37 cx42 cx47 cx52 cx57 cx62 cx67 cx72 cx77"
+      "cx3 cx8 cx13 cx18 cx23 cx28 cx33 cx38 cx43 cx48 cx53 cx58 cx63 cx68 cx73 cx78"
+      "cx4 cx9 cx14 cx19 cx24 cx29 cx34 cx39 cx44 cx49 cx54 cx59 cx64 cx69 cx74 cx79"
+      "cx5 cx10 cx15 cx20 cx25 cx30 cx35 cx40 cx45 cx50 cx55 cx60 cx65 cx70 cx75 cx80";
+}
+
+@media only screen and (max-width: 576px) {
+  .wrapper-b {    
     display:grid;
     width: auto !important;
+    margin-bottom: 25px;
     grid-template-areas: 
-        "cx1 cx6 cx11 cx16 cx21 cx26 cx31 cx36 cx41 cx46 cx51 cx56 cx61 cx66 cx71 cx76"
-        "cx2 cx7 cx12 cx17 cx22 cx27 cx32 cx37 cx42 cx47 cx52 cx57 cx62 cx67 cx72 cx77"
-        "cx3 cx8 cx13 cx18 cx23 cx28 cx33 cx38 cx43 cx48 cx53 cx58 cx63 cx68 cx73 cx78"
-        "cx4 cx9 cx14 cx19 cx24 cx29 cx34 cx39 cx44 cx49 cx54 cx59 cx64 cx69 cx74 cx79"
-        "cx5 cx10 cx15 cx20 cx25 cx30 cx35 cx40 cx45 cx50 cx55 cx60 cx65 cx70 cx75 cx80";
-  
+        "cx1 cx6 cx11 cx16""cx21 cx26 cx31 cx36""cx41 cx46 cx51 cx56""cx61 cx66 cx71 cx76"
+        "cx2 cx7 cx12 cx17""cx22 cx27 cx32 cx37""cx42 cx47 cx52 cx57""cx62 cx67 cx72 cx77"
+        "cx3 cx8 cx13 cx18""cx23 cx28 cx33 cx38""cx43 cx48 cx53 cx58""cx63 cx68 cx73 cx78"
+        "cx4 cx9 cx14 cx19""cx24 cx29 cx34 cx39""cx44 cx49 cx54 cx59""cx64 cx69 cx74 cx79"
+        "cx5 cx10 cx15 cx20""cx25 cx30 cx35 cx40""cx45 cx50 cx55 cx60""cx65 cx70 cx75 cx80";
   }
+}
   #cx1{
     grid-area: cx1;
   }

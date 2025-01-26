@@ -59,13 +59,13 @@ function CritterInfo(props) {
 			>
 				<Modal.Body className="my-5">
 					<Row className="col-12">
-						<Col className="col-6 critterLeft">
+						<Col className="col-md-6 col-12 critterLeft">
 							<div className="critterTitleShadow">
 								<div className="critterTitle">{props.name}</div>
 							</div>
 							<img src={props.image} alt={props.name} />
 						</Col>
-						<Col className="col-6 critterRight">
+						<Col className="col-md-6 col-12 critterRight">
 							<Calendar 
 								months={month}
 								availableMonths={props.availability.months_array}

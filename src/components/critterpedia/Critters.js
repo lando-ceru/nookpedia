@@ -58,7 +58,7 @@ class Critters extends React.Component {
 			return <div>Loading...</div>;
 		} else {
 			return (
-				<Row className="flex mx-auto">
+				<Row className="flex mx-auto" style={{'place-content': "center"}}>
 					<div className="wrapper-b">
 						{Object.entries(critters).map(([key, data]) => (
 							<Col key={key} id={"cx" + data.id} className="flex item">

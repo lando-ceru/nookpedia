@@ -6,6 +6,15 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.imgLogo{
+  width: 15%;
+}
+@media only screen and (max-width: 576px) {
+  .imgLogo{
+    width: 50%;
+    margin-bottom: 20px;
+  }
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
