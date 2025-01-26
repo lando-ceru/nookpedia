@@ -3,11 +3,10 @@ import "./Clock.css";
 
 function Clock(props) {
 
-
     const d = new Date();
     let hour = d.getHours();
     let minutes = d.getMinutes();
-	const hours = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23];
+	const hours = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24];
 	const hourDivs = [];
     let time_start = props.availableTime.split('–')[0];
     let time_finish = props.availableTime.split('–')[1];
@@ -17,7 +16,7 @@ function Clock(props) {
 
     minutes = (100 * minutes) / 60;
 
-	for (let i = 1; i <= 23; i++) {
+	for (let i = 0; i <= 23; i++) {
 		hourDivs.push(<div key={i} className="hour"></div>);
 	}
 
@@ -26,8 +25,8 @@ function Clock(props) {
         hour_finish = 23;
     }
     else{
-        hour_start = time_start.includes("PM") ? parseInt(props.availableTime.replace(/(^\d+)(.+$)/i,'$1')) + 12 : props.availableTime.replace(/(^\d+)(.+$)/i,'$1');
-        hour_finish = time_finish.includes("PM") ? parseInt(props.availableTime.match(/\d+/g)?.[1]) + 12 : props.availableTime.match(/\d+/g)?.[1];
+        hour_start = time_start.includes("PM") ? parseInt(props.availableTime.replace(/(^\d+)(.+$)/i,'$1')) + 12 : parseInt(props.availableTime.replace(/(^\d+)(.+$)/i,'$1'));
+        hour_finish = time_finish.includes("PM") ? parseInt(props.availableTime.match(/\d+/g)?.[1]) + 11 : (parseInt(props.availableTime.match(/\d+/g)?.[1]) - 1);
     }
 
     if(hour_start < hour_finish){
@@ -63,7 +62,6 @@ function Clock(props) {
                             <div className="day_quarters">6</div>
                         </div>
                         <div className="time">{hourDivs}</div>
-                        <div className="current-time" style={{'left': ((100 * hour + minutes) / 23).toString() + "%"}}></div>
                         <div className="hour-bar">
                             {
                                 hours.map((hour, i) => {
@@ -74,6 +72,7 @@ function Clock(props) {
                                 })
                             }
                         </div>
+                        <div className="current-time" style={{'left': ((100 * hour + minutes) / 24).toString() + "%"}}></div>
                     </div>
                 </div>
             </div>
