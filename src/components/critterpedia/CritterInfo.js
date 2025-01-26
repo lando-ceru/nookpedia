@@ -82,10 +82,10 @@ function CritterInfo(props) {
 									<Col className="col-6">{((props.location) ? props.location : props.shadow)}</Col><Col className="col-6">{((props.rarity) ? props.rarity : "Very Common")}</Col>
 								</Row>
 								<Row className="col-12 mb-1">
-									<Col className="col-6"><span className="label">{((props.weather) ? "Weather" : "Speed")}</span></Col><Col className="col-6"><span className="label">Price</span></Col>
+									<Col className="col-6"><span className="label">{((props.weather) ? "Weather" : ((props.speed) ? "Speed" : "Shadow"))}</span></Col><Col className="col-6"><span className="label">Price</span></Col>
 								</Row>
 								<Row className="col-12 mb-4">
-									<Col className="col-6">{((props.weather) ? props.weather : props.speed)}</Col><Col className="col-6">{props.price} bells{buyerMessage}</Col>
+									<Col className="col-6">{((props.weather) ? props.weather : ((props.speed) ? props.speed : props.shadow))}</Col><Col className="col-6">{props.price} bells{buyerMessage}</Col>
 								</Row>
 								<Row className="col-12">
 									<Col className="col-12 mb-1"><span className="label">Catch notes</span></Col><Col className="col-12">{props.museum[Math.floor(Math.random() * props.museum.length)]}</Col>
