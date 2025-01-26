@@ -1,7 +1,7 @@
 {
   "name": "nookpedia",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.1.1",
+  "private": false,
   "homepage": "http://lando-ceru.github.io/nookpedia",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.4",
