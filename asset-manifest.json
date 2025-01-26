@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/nookpedia/static/css/main.2e7453c4.chunk.css",
-    "main.js": "/nookpedia/static/js/main.a208a5b1.chunk.js",
-    "main.js.map": "/nookpedia/static/js/main.a208a5b1.chunk.js.map",
+    "main.css": "/nookpedia/static/css/main.c739ae23.chunk.css",
+    "main.js": "/nookpedia/static/js/main.e567af03.chunk.js",
+    "main.js.map": "/nookpedia/static/js/main.e567af03.chunk.js.map",
     "runtime-main.js": "/nookpedia/static/js/runtime-main.656091f2.js",
     "runtime-main.js.map": "/nookpedia/static/js/runtime-main.656091f2.js.map",
     "static/css/2.383c0125.chunk.css": "/nookpedia/static/css/2.383c0125.chunk.css",
@@ -12,14 +12,14 @@
     "static/js/3.283ff3d2.chunk.js.map": "/nookpedia/static/js/3.283ff3d2.chunk.js.map",
     "index.html": "/nookpedia/index.html",
     "static/css/2.383c0125.chunk.css.map": "/nookpedia/static/css/2.383c0125.chunk.css.map",
-    "static/css/main.2e7453c4.chunk.css.map": "/nookpedia/static/css/main.2e7453c4.chunk.css.map",
+    "static/css/main.c739ae23.chunk.css.map": "/nookpedia/static/css/main.c739ae23.chunk.css.map",
     "static/js/2.096b661e.chunk.js.LICENSE.txt": "/nookpedia/static/js/2.096b661e.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.656091f2.js",
     "static/css/2.383c0125.chunk.css",
     "static/js/2.096b661e.chunk.js",
-    "static/css/main.2e7453c4.chunk.css",
-    "static/js/main.a208a5b1.chunk.js"
+    "static/css/main.c739ae23.chunk.css",
+    "static/js/main.e567af03.chunk.js"
   ]
 }
