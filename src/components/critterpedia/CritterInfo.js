@@ -10,6 +10,7 @@ function CritterInfo(props) {
 
 	const d = new Date();
 	const currentMonth = d.getMonth() + 1;
+    let hour = d.getHours();
 	const month = [];
 	month[1] = "Jan.";
 	month[2] = "Feb.";
@@ -25,29 +26,20 @@ function CritterInfo(props) {
 	month[12] = "Dec.";
 
 	let availableTime = props.availability.availability_array[0].time;
-    let hour = d.getHours();
-    let minutes = d.getMinutes();
-	const hours = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23];
-	const hourDivs = [];
+	const hours = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24];
     let time_start = availableTime.split('–')[0];
     let time_finish = availableTime.split('–')[1];
     let hour_start = "";
     let hour_finish = "";
     var hourList = [];
 
-    minutes = (100 * minutes) / 60;
-
-	for (let i = 1; i <= 23; i++) {
-		hourDivs.push(<div key={i} className="hour"></div>);
-	}
-
     if(availableTime === "All day"){
         hour_start = 0;
         hour_finish = 23;
     }
     else{
-        hour_start = time_start.includes("PM") ? parseInt(availableTime.replace(/(^\d+)(.+$)/i,'$1')) + 12 : availableTime.replace(/(^\d+)(.+$)/i,'$1');
-        hour_finish = time_finish.includes("PM") ? parseInt(availableTime.match(/\d+/g)?.[1]) + 12 : availableTime.match(/\d+/g)?.[1];
+        hour_start = time_start.includes("PM") ? parseInt(availableTime.replace(/(^\d+)(.+$)/i,'$1')) + 12 : parseInt(availableTime.replace(/(^\d+)(.+$)/i,'$1'));
+        hour_finish = time_finish.includes("PM") ? parseInt(availableTime.match(/\d+/g)?.[1]) + 12 : (parseInt(availableTime.match(/\d+/g)?.[1]));
     }
 
     if(hour_start < hour_finish){
@@ -71,11 +63,13 @@ function CritterInfo(props) {
 	const buyerMessage = (props.cj || props.flick) ? " (" + buyerPrice + " if sold to " + higherBuyer + ")" : "";
 	
 	const mode = (props.mode === "discover") ? true : false;
+	
+	let withinHours = (hour >= hour_start && hour < hour_finish);
+	let overNight = (((hour >= hour_start && hour < 23) || (hour >= 0 && hour < hour_finish)) && hour_finish < hour_start);
+	let allDay = (hour_start == 0 && hour_finish == 23);
 
 	month.map((m, i) => {
-		hours.map((hour, j) => {
-			return hidden = (!props.availability.months_array.includes(currentMonth) && mode) ? "not-available" : ((props.availability.months_array.includes(currentMonth) && (!hourList.includes(j)) && mode) ? "not-available-month" : "");
-		})
+		return hidden = (!props.availability.months_array.includes(currentMonth) && mode) ? "not-available" : ((props.availability.months_array.includes(currentMonth) && !withinHours && !allDay && !overNight && mode) ? "not-available-month" : "");
 	})
 
 
