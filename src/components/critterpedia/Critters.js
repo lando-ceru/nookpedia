@@ -61,7 +61,7 @@ class Critters extends React.Component {
 				<Row className="flex mx-auto" style={{'place-content': "center"}}>
 					<div className="wrapper-b">
 						{Object.entries(critters).map(([key, data]) => (
-							<Col key={key} id={"cx" + data.id} className="flex item">
+							<Col key={key} id={"cx" + data.number} className="flex item">
 								<div className="p-1">
 									<CritterInfo
 										id={data.number}
